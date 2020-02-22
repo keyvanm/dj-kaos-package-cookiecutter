@@ -7,5 +7,6 @@
   "description": "Django @ Kaos Labs",
   "keywords": "django, kaos, kaos labs",
   "version": "0.0.1",
-  "kaos_utils": "y"
+  "is_scripts_package": "n",
+  "kaos_utils": "y",
 }
