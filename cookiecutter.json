@@ -6,5 +6,6 @@
   "package_name": "kaos_...",
   "description": "Django @ Kaos Labs",
   "keywords": "django, kaos, kaos labs",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "kaos_utils": "y"
 }
