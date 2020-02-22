@@ -1,4 +1,5 @@
 ../dj-kaos-dev-utils/
+../dj-kaos-pkg-dev-utils/
 {% if cookiecutter.kaos_utils == 'y' %}
 ../dj-kaos-utils/
 {% endif %}
