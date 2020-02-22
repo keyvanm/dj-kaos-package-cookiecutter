@@ -8,5 +8,5 @@
   "keywords": "django, kaos, kaos labs",
   "version": "0.0.1",
   "is_scripts_package": "n",
-  "kaos_utils": "y",
+  "kaos_utils": "y"
 }
