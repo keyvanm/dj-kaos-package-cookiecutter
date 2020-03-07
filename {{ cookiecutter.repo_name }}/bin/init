@@ -1,0 +1,65 @@
+# bin/bash
+
+source bin/env
+
+echo "> Please confirm you want to (re)initialize ${DJANGO_REPO}" && read
+
+
+function git_force_push_head(){
+    echo "ℹ️  Pushing to Github" && echo "✅"
+    git push -uf origin HEAD
+}
+function create_or_reset_origin() {
+  repo_name=`basename "$PWD"`
+  repo_addr="gh:keyvanm/$repo_name"
+  echo "ℹ️  Creating or checking for $repo_addr"
+  hub create -p && echo "✅"
+  echo "ℹ️  Check if existing code"
+  git checkout -b old-master origin/master && reset_origin
+}
+function reset_origin {
+    echo "ℹ️  Existing code detected. Archving..."
+    git checkout old-master
+    git push origin old-master:archive/$(date +%F)/$(date +'%I-%M-%S') && echo "✅"
+    echo "ℹ️  Resetting repo...."
+    git checkout master
+    git branch -D old-master
+    echo "✅ $repo_addr successfully reset"
+}
+
+
+function setup() {
+  echo "⚙️  Setting up the package..."
+  cd ${DIR}
+  rm -rf nohup.log/
+  mkdir nohup.log/
+
+  echo "ℹ️  Building environment"
+  rmvirtualenv ${REPO}
+  mkproject -f ${REPO} >> /dev/null && echo "✅"
+  echo
+
+  echo "ᛘ Setting up Git..."
+  git init && git add . && git commit -qm "Initial Commit"
+  echo
+  create_or_reset_origin
+  git_force_push_head
+  echo "✅ Setting up Git: Done"
+  echo
+
+  nohup pip install -r requirements/local.txt > nohup.log/pip.out 2>&1 &
+
+  echo "✅ Setting up: Done"
+  echo
+}
+
+# Ideas:
+# Write to a log or a document like file all important info and links
+
+direnv allow
+setup_django
+cd ${DIR}
+echo "✅ Package initialized successfully"
+echo
+echo "[ ] Please check nohup/ t0 confirm & run $ bin/init_ok"
+echo

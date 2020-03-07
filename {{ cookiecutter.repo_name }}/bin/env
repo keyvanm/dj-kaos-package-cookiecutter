@@ -1,0 +1,5 @@
+GH_USER='keyvanm'
+REPO='{{ cookiecutter.repo_name }}'
+
+PROGS_DIR="${HOME}/prog"
+DIR="${PROGS_DIR}/${REPO}"
