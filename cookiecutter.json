@@ -1,11 +1,9 @@
 {
-  "author": "Keyvan Mosharraf",
-  "author_email": "keyvan@keyvanm.com",
-  "project_name": "DJ Kaos ...",
   "repo_name": "dj-kaos-...",
   "package_name": "kaos_...",
-  "description": "Django @ Kaos Labs",
-  "keywords": "django, kaos, kaos labs",
+  "project_name": "DJ Kaos ...",
+  "description": "Django app",
+  "keywords": "django, ...",
   "version": "0.0.1",
   "is_scripts_package": "n",
   "kaos_utils": "y"
