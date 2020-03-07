@@ -15,7 +15,7 @@ function create_or_reset_origin() {
   echo "ℹ️  Creating or checking for $repo_addr"
   hub create -p && echo "✅"
   echo "ℹ️  Check if existing code"
-  git checkout -b old-master origin/master && reset_origin
+  git checkout -b old-master origin/master 2>/dev/null  && reset_origin
 }
 function reset_origin {
     echo "ℹ️  Existing code detected. Archving..."
@@ -47,7 +47,7 @@ function setup() {
   echo "✅ Setting up Git: Done"
   echo
 
-  nohup pip install -r requirements/local.txt > nohup.log/pip.out 2>&1 &
+  nohup pip install -r requirements.txt > nohup.log/pip.out 2>&1 &
 
   echo "✅ Setting up: Done"
   echo
