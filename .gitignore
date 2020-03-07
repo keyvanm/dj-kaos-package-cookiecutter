@@ -51,6 +51,6 @@ dj-package/
 
 .idea/
 
-!{{ * }}/.idea
-!{{ * }}/bin
-!{{ * }}/.env
+!{{*}}/.idea
+!{{*}}/bin
+!{{*}}/.env
