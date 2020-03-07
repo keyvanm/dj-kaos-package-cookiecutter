@@ -2,7 +2,7 @@
 
 source bin/env
 
-echo "> Please confirm you want to (re)initialize ${DJANGO_REPO}" && read
+echo "> Please confirm you want to (re)initialize ${REPO}" && read
 
 
 function git_force_push_head(){
@@ -57,7 +57,7 @@ function setup() {
 # Write to a log or a document like file all important info and links
 
 direnv allow
-setup_django
+setup
 cd ${DIR}
 echo "✅ Package initialized successfully"
 echo
