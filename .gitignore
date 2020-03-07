@@ -53,3 +53,4 @@ dj-package/
 
 !{{ * }}/.idea
 !{{ * }}/bin
+!{{ * }}/.env
