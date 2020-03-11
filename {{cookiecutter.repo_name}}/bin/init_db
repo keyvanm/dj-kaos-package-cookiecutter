@@ -7,3 +7,5 @@ cd $DIR/example
 python manage.py migrate &&
   python manage.py createsuperuser --noinput &&
   echo "✅  Database Initialized"
+
+cd $DIR
