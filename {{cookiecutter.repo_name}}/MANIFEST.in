@@ -1,5 +1,9 @@
 include LICENSE
 include README.md
-recursive-include docs *
-recursive-include {{ cookiecutter.package_name }}/static *
-recursive-include {{ cookiecutter.package_name }}/templates *
+
+graft docs
+
+graft {{ cookiecutter.package_name }}/static
+graft {{ cookiecutter.package_name }}/templates
+graft {{ cookiecutter.package_name }}/*/static
+graft {{ cookiecutter.package_name }}/*/templates
