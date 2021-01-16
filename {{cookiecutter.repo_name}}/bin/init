@@ -19,7 +19,6 @@ function create_or_reset_origin() {
 }
 function reset_origin {
     echo "ℹ️  Existing code detected. Archving..."
-    git checkout old-master
     git push origin old-master:archive/$(date +%F)/$(date +'%I-%M-%S') && echo "✅"
     echo "ℹ️  Resetting repo...."
     git checkout master
