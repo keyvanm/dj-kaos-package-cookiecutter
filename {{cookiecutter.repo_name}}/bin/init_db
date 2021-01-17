@@ -3,9 +3,15 @@
 source bin/env
 
 cd $DIR/example
+direnv allow
+
+virtualenv venv
+source venv/bin/activate
+pip install -r requirements.txt
 
 python manage.py migrate &&
   python manage.py createsuperuser --noinput &&
   echo "✅  Database Initialized"
+deactivate
 
 cd $DIR
