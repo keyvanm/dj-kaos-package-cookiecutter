@@ -12,7 +12,7 @@ function git_force_push_head(){
 function create_or_reset_origin() {
   gh_repo_addr="gh:$GH_USER/$REPO_NAME"
   echo "ℹ️  Creating or checking for $gh_repo_addr"
-  hub create -p && echo "✅"
+  hub create -p "$GH_USER/$REPO_NAME" && echo "✅"
   echo "ℹ️  Check if existing code"
   git checkout -b old-master origin/master 2>/dev/null  && reset_origin
 }
