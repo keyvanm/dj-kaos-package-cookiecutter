@@ -2,7 +2,7 @@
 
 source bin/env
 
-echo "> Please confirm you want to (re)initialize ${REPO}" && read
+echo "> Please confirm you want to (re)initialize ${REPO_NAME}" && read
 
 
 function git_force_push_head(){
@@ -10,9 +10,8 @@ function git_force_push_head(){
     git push -uf origin HEAD
 }
 function create_or_reset_origin() {
-  repo_name=`basename "$PWD"`
-  repo_addr="gh:keyvanm/$repo_name"
-  echo "ℹ️  Creating or checking for $repo_addr"
+  gh_repo_addr="gh:$GH_USER/$REPO_NAME"
+  echo "ℹ️  Creating or checking for $gh_repo_addr"
   hub create -p && echo "✅"
   echo "ℹ️  Check if existing code"
   git checkout -b old-master origin/master 2>/dev/null  && reset_origin
@@ -23,19 +22,19 @@ function reset_origin {
     echo "ℹ️  Resetting repo...."
     git checkout master
     git branch -D old-master
-    echo "✅ $repo_addr successfully reset"
+    echo "✅ $gh_repo_addr successfully reset"
 }
 
 
 function setup() {
   echo "⚙️  Setting up the package..."
-  cd ${DIR}
+  cd ${BASE_DIR}
   rm -rf nohup.log/
   mkdir nohup.log/
 
   echo "ℹ️  Building environment"
-  rmvirtualenv ${REPO}
-  mkproject -f ${REPO} >> /dev/null && echo "✅"
+  rmvirtualenv ${REPO_NAME}
+  mkproject -f ${REPO_NAME} >> /dev/null && echo "✅"
   echo
 
   echo "ᛘ Setting up Git..."
@@ -57,7 +56,7 @@ function setup() {
 
 direnv allow
 setup
-cd ${DIR}
+cd ${BASE_DIR}
 echo "✅ Package initialized successfully"
 echo
 echo "[ ] Please check nohup/ t0 confirm & run $ bin/init_ok"

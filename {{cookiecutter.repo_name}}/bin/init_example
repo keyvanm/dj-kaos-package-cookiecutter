@@ -2,7 +2,7 @@
 
 source bin/env
 
-cd $DIR/example
+cd $BASE_DIR/example
 direnv allow
 
 virtualenv venv
