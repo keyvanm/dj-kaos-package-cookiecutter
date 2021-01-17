@@ -1,6 +1,6 @@
 # bin/bash
 
-source bin/env
+source bin/.env
 
 echo "> Please confirm you want to (re)initialize ${REPO_NAME}" && read
 
