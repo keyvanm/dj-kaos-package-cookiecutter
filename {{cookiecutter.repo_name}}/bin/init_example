@@ -14,4 +14,4 @@ python manage.py migrate &&
   echo "✅  Database Initialized"
 deactivate
 
-cd $DIR
+cd $BASE_DIR
