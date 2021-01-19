@@ -5,7 +5,7 @@
   "project_name": "DJ Kaos ...",
   "description": "Django app",
   "keywords": "django, ...",
-  "version": "0.0.1dev1",
+  "version": "0.0.0",
   "is_scripts_package": "n",
   "kaos_utils": "y"
 }
