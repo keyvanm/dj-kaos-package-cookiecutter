@@ -18,6 +18,7 @@ function create_or_reset_origin() {
     git remote add origin git@github.com:$GH_USER/$REPO_NAME.git
   fi
   echo "ℹ️  Check if existing code"
+  git fetch --all
   git checkout -b old-master origin/master 2>/dev/null  && reset_origin
 }
 function reset_origin {
