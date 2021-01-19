@@ -12,11 +12,14 @@ function git_force_push_head(){
 }
 function create_or_reset_origin() {
   echo "ℹ️  Creating or checking for $gh_repo_addr"
-  if gh repo create "$GH_USER/$REPO_NAME" --private ; then
-    echo "✅"
-  else
+  if gh repo view "$GH_USER/$REPO_NAME" > /dev/null 2>&1 ; then
+    echo "Repo $gh_repo_addr already exists, adding as remote..."
     git remote add origin git@github.com:$GH_USER/$REPO_NAME.git
+  else
+    echo "Repo $gh_repo_addr doesn't exists, creating..."
+    gh repo create "$GH_USER/$REPO_NAME" --private
   fi
+  echo "✅"
   echo "ℹ️  Check if existing code"
   git fetch --all
   git checkout -b old-master origin/master 2>/dev/null  && reset_origin
