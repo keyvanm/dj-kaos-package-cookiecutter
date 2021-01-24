@@ -14,7 +14,6 @@
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/{{ cookiecutter.package_name }}" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/{{ cookiecutter.repo_name|replace('-', '_') }}.egg-info" />
       <excludeFolder url="file://$MODULE_DIR$/dist" />
       <excludeFolder url="file://$MODULE_DIR$/build" />
